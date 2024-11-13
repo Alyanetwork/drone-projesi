@@ -27,4 +27,3 @@ SENSOR_SETTINGS = {
     "ultrasonic": {"trig_pin": 23, "echo_pin": 24, "distance_threshold": 50},
     "lidar": {"port": "/dev/ttyUSB0", "baudrate": 115200}
 }
-,
