@@ -1,0 +1,23 @@
+SavunmaDroneProjesi/
+├── src/
+│   ├── main.py
+│   ├── config.py
+│   ├── modules/
+│   │   ├── ai_control/
+│   │   │   ├── autopilot.py
+│   │   │   └── route_planning.py
+│   │   ├── camera/
+│   │   │   ├── camera_control.py
+│   │   │   └── threat_detection.py
+│   │   ├── gps/
+│   │   │   └── gps_navigation.py
+│   │   ├── security/
+│   │   │   ├── encryption.py
+│   │   │   └── jammer_control.py
+│   │   ├── sensors/
+│   │   │   ├── ultrasonic_sensor.py
+│   │   │   └── lidar_sensor.py
+│   │   └── data_analysis/
+│   │       ├── data_logger.py
+│   │       └── mission_report.py
+└── README.md
