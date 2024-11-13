@@ -1,12 +1,26 @@
 SavunmaDroneProjesi/
-├── main.py
-├── config.py
-├── camera_control.py
-├── gps_navigation.py
-├── threat_detection.py
-├── jammer_control.py
-├── security.py
-├── sensor_data.py
+├── src/
+│   ├── main.py
+│   ├── config.py
+│   ├── modules/
+│   │   ├── camera/
+│   │   │   ├── camera_control.py
+│   │   │   └── threat_detection.py
+│   │   ├── gps/
+│   │   │   └── gps_navigation.py
+│   │   ├── security/
+│   │   │   ├── encryption.py
+│   │   │   └── jammer_control.py
+│   │   ├── sensors/
+│   │   │   ├── ultrasonic_sensor.py
+│   │   │   └── lidar_sensor.py
+│   │   └── data_analysis/
+│   │       ├── data_logger.py
+│   │       └── mission_report.py
+│   └── utils/
+│       ├── logger.py
+│       └── helper.py
 ├── README.md
 └── docs/
-    └── documentation.pdf
+    ├── documentation.pdf
+    └── advanced_usage.md
