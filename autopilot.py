@@ -33,3 +33,4 @@ class AutoPilot:
                 self.jammer.activate()
 
         print("Otonom Mod Görevi Tamamlandı.")
+        
