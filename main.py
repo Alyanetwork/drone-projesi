@@ -1,43 +1,44 @@
 # main.py
 
 from dronekit import connect, VehicleMode
-from gps_navigation import execute_mission
-from camera_control import show_camera_feed
-from threat_detection import identify_threats
-from jammer_control import activate_jammer
-from sensor_data import check_obstacle
-from security import encrypt_message, decrypt_message
+from modules.gps.gps_navigation import GPSNavigation
+from modules.camera.threat_detection import ThreatDetection
+from modules.security.jammer_control import JammerControl
+from modules.security.encryption import Encryption
+from modules.sensors.ultrasonic_sensor import UltrasonicSensor
 from config import DRONE_CONNECTION_STRING
 
 def main():
-    # Drone bağlantısını başlat
+    # Drone bağlantısı
     vehicle = connect(DRONE_CONNECTION_STRING, wait_ready=True)
     vehicle.mode = VehicleMode("GUIDED")
-    
-    # Kamera ve nesne algılama
-    show_camera_feed()
-    
-    # GPS Navigasyon görevine başla
-    execute_mission(vehicle)
-    
-    # Tehdit algılama
-    frame = get_frame()  # Kamera görüntüsünü al
-    threats = identify_threats(frame)
+
+    # Modülleri başlat
+    gps_navigation = GPSNavigation(vehicle)
+    threat_detection = ThreatDetection()
+    jammer = JammerControl()
+    encryption = Encryption()
+    ultrasonic_sensor = UltrasonicSensor()
+
+    # Görev ve uçuş başlatma
+    gps_navigation.execute_mission()
+
+    # Tehdit algılama ve jammer aktivasyonu
+    threats = threat_detection.identify_threats()
     if threats:
-        print("Tehdit tespit edildi! Jammer aktif ediliyor.")
-        activate_jammer()
-    
+        print("Tehdit tespit edildi! Jammer aktif.")
+        jammer.activate()
+
     # Engel kontrolü
-    if check_obstacle():
-        print("Engel algılandı, yön değiştiriliyor...")
-        # Engelden kaçınma algoritması eklenebilir
-    
-    # Verileri güvenli bir şekilde şifrele ve çöz
+    if ultrasonic_sensor.measure_distance():
+        print("Engel tespit edildi, yön değiştiriliyor...")
+
+    # Veri şifreleme ve çözme örneği
     message = "Örnek mesaj"
-    encrypted_msg = encrypt_message(message)
-    decrypted_msg = decrypt_message(encrypted_msg)
-    print(f"Şifrelenmiş mesaj: {encrypted_msg}")
-    print(f"Çözülmüş mesaj: {decrypted_msg}")
+    encrypted_msg = encryption.encrypt_message(message)
+    decrypted_msg = encryption.decrypt_message(encrypted_msg)
+    print(f"Şifreli mesaj: {encrypted_msg}")
+    print(f"Çözülen mesaj: {decrypted_msg}")
 
     vehicle.close()
 
