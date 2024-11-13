@@ -1,13 +1,15 @@
-# jammer_control.py
+# modules/security/jammer_control.py
 
 import RPi.GPIO as GPIO
 import time
-from config import JAMMER_PIN, JAMMER_DURATION
+from config import JAMMER_SETTINGS
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(JAMMER_PIN, GPIO.OUT)
+class JammerControl:
+    def __init__(self):
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(JAMMER_SETTINGS["pin"], GPIO.OUT)
 
-def activate_jammer():
-    GPIO.output(JAMMER_PIN, GPIO.HIGH)
-    time.sleep(JAMMER_DURATION)
-    GPIO.output(JAMMER_PIN, GPIO.LOW)
+    def activate(self):
+        GPIO.output(JAMMER_SETTINGS["pin"], GPIO.HIGH)
+        time.sleep(JAMMER_SETTINGS["duration"])
+        GPIO.output(JAMMER_SETTINGS["pin"], GPIO.LOW)
