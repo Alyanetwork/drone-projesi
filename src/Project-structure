@@ -1,0 +1,35 @@
+SavunmaDroneProjesi/
+├── src/
+│   ├── main.py
+│   ├── config.py
+│   ├── modules/
+│   │   ├── ai_control/
+│   │   │   ├── autopilot.py
+│   │   │   ├── route_planning.py
+│   │   │   ├── signal_analysis.py
+│   │   │   └── behavior_analysis.py   # Sivil ve terörist ayrımı
+│   │   ├── camera/
+│   │   │   ├── camera_control.py
+│   │   │   ├── threat_detection.py
+│   │   │   ├── thermal_imaging.py
+│   │   │   ├── face_recognition.py    # Yüz tanıma
+│   │   │   └── recording.py           # Görüntü kayıt
+│   │   ├── communication/
+│   │   │   ├── satellite_comms.py
+│   │   │   └── secure_comm.py         # Kriptolu iletişim
+│   │   ├── gps/
+│   │   │   └── gps_navigation.py
+│   │   ├── mapping/
+│   │   │   └── mapping_3d.py
+│   │   ├── security/
+│   │   │   ├── encryption.py
+│   │   │   ├── jammer_control.py
+│   │   │   └── blockchain_security.py
+│   │   ├── sensors/
+│   │   │   ├── ultrasonic_sensor.py
+│   │   │   ├── lidar_sensor.py
+│   │   │   └── audio_processing.py    # Ses tanıma
+│   │   └── power/
+│   │       ├── battery_management.py
+│   │       └── solar_power.py
+└── README.md
