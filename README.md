@@ -12,6 +12,7 @@ Kriptolu İletişim ve Bilgi Paylaşımı: En yakın kontrol merkezine kriptolu 
 Blockchain Tabanlı Güvenlik: Verileri blockchain teknolojisi ile güvenli hale getirir.
 Engel Algılama ve Kaçınma: Ultrasonik ve lidar sensörlerle engellerden kaçınır.
 Batarya Yönetimi ve Güneş Enerjisi Şarjı: Uzun süreli uçuşlar için gelişmiş batarya yönetimi sunar.
+
 Kurulum Talimatları
 Gerekli Yazılımlar ve Kütüphaneler
 Python 3.7+ sürümünün yüklü olduğundan emin olun.
@@ -19,6 +20,7 @@ Gerekli Python kütüphanelerini yüklemek için:
 bash
 Kodu kopyala
 pip install dronekit opencv-python pycryptodome RPi.GPIO face_recognition speechrecognition
+
 Donanım Bağlantıları
 Ultrasonik Sensör ve Lidar: GPIO pinlerine doğru şekilde bağlayın.
 Kamera: Raspberry Pi kamera modülünü kullanıyorsanız, bağlantıyı doğru port üzerinden yapın.
@@ -30,10 +32,8 @@ src klasöründe aşağıdaki komut ile projeyi başlatın:
 bash
 Kodu kopyala
 python src/main.py
+
 Proje Modülleri ve Yapısı
-Ana Yapı
-plaintext
-Kodu kopyala
 SavunmaDroneProjesi/
 ├── src/
 │   ├── main.py
@@ -69,6 +69,8 @@ SavunmaDroneProjesi/
 │   │       ├── battery_management.py
 │   │       └── solar_power.py
 └── README.md
+
+
 Modüllerin Açıklaması
 main.py: Tüm modülleri entegre eder ve drone’un tüm işlevlerini yönetir.
 config.py: Projenin yapılandırma ayarlarını içerir.
@@ -106,6 +108,8 @@ Power:
 
 battery_management.py: Batarya seviyesini izler ve yönetir.
 solar_power.py: Güneş enerjisi ile şarj desteği sağlar.
+
+
 Proje Haritası
 Proje İşleyişi
 Drone Bağlantısı ve Otonom Uçuş:
@@ -129,12 +133,11 @@ Tüm veriler AES ile şifrelenir ve blockchain tabanlı güvenlik sistemiyle kor
 Batarya Yönetimi ve Şarj:
 
 Batarya seviyesini kontrol eder ve güneş enerjisi ile şarj sağlar.
+
+
 Kullanım Örnekleri ve Komutlar
 Örnek Yüz Tanıma Komutu
 Yüz tanıma ve tehdit durumunda kriptolu mesaj gönderimi:
-
-python
-Kodu kopyala
 frame = thermal_imaging.capture_thermal_image()
 recognized_face = face_recognition.recognize_face(frame)
 if recognized_face == "Bilinmeyen":
@@ -142,9 +145,12 @@ if recognized_face == "Bilinmeyen":
     secure_comm.send_secure_message("Bölgeye bilinmeyen kişi girdi.")
 else:
     print(f"{recognized_face} tespit edildi ve kaydedildi.")
+
+
 Örnek Ses Tanıma ve Tehdit Algılama Komutu
-python
-Kodu kopyala
 threat_status = audio_processing.listen_for_threats()
 print(f"Tehdit durumu: {threat_status}")
-Bu dökümantasyon ve proje haritası, projenin anlaşılmasını ve kurulmasını kolaylaştırmak için gerekli bilgileri sağlamaktadır. 
+
+
+
+
